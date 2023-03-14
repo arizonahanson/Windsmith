@@ -39,3 +39,6 @@ vignettes/*.pdf
 .Renviron
 # ---
 .vscode
+*.stl
+*.3mf
+*.gcode
