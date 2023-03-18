@@ -1,4 +1,7 @@
 
+// union overlap (mm)
+EPSILON = 1e-3;
+
 // translate along z-axis
 module lift(length=0)
   translate([0, 0, length])
@@ -15,6 +18,15 @@ module roll(angle=90)
   children();
 
 // scale along y-axis
-module grow(ratio=1)
+module pull(ratio=1)
   scale([1, ratio, 1])
   children();
+
+// minkowski sum with cube of given side length
+module squirk(sq=0, convexity=2)
+  if (sq>=EPSILON) minkowski(convexity=convexity) {
+    translate([-sq/2, -sq/2, 0])
+      cube([sq, sq, EPSILON]);
+    children();
+  } else
+    children();
