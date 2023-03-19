@@ -1,6 +1,6 @@
 
-use <tools/tools.scad>;
-use <tenon.scad>;
+use <lib/tools.scad>;
+use <lib/components.scad>;
 
 CorkL=8.6;
 HoleL=17.4;

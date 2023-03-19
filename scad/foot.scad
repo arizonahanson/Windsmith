@@ -1,6 +1,6 @@
 
-use <tools/tools.scad>;
-use <tenon.scad>;
+use <lib/tools.scad>;
+use <lib/components.scad>;
 
 TenonL = 26;
 FootLength=183.764;

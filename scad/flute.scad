@@ -1,5 +1,5 @@
 
-use <tools/tools.scad>;
+use <lib/tools.scad>;
 use <head.scad>;
 use <body.scad>;
 use <foot.scad>;
@@ -28,7 +28,7 @@ else if ($preview)
   // assembled preview
   hold()
     head()
-    body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters)
+    lift(3) body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters)
     foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters);
 else
   assert(PART!="preview", "Must supply PART (head | body | foot)");
