@@ -27,7 +27,7 @@ module tenon(h=26, b1=26.0, b2=19.0)
 module mortise(h1=26, h2=8.6, b1=26.0, b2=19.0)
   if ($children > 0) {
     mortise(h1=h1, h2=h2, b1=b1, b2=b2);
-    lift(h)
+    lift(h1)
       children();
   } else
     difference() {

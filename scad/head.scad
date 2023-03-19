@@ -38,8 +38,5 @@ module head() {
 }
 
 // TESTS
-if($preview) {
-  turn() roll() lift(-OffsetL)
-    head();
-} else
+hold()
   head();

@@ -1,20 +1,19 @@
 
-
 use <tools/tools.scad>;
 use <tenon.scad>;
 
 TenonL = 26;
-FootL = 156;
+FootLength=183.764;
+FootHolePositions=[19.567,42.338,72.338];
+FootHoleDiameters=[8.932,9.947,5.505];
 
-module foot(l=FootL)
+module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
   difference() {
-    mortise(h1=17.4)
+    mortise(h2=17.4)
     stack(h=l, d=26, top=false);
     stack(h=l+TenonL, d=19);
+    toneholes(b=19.0, h=4.3, hs=[for (x=hs) x+TenonL], ds=ds);
   }
 
-if ($preview)
-  turn() roll() lift(-TenonL)
-    foot();
-else
+hold()
   foot();

@@ -22,6 +22,13 @@ module pull(ratio=1)
   scale([1, ratio, 1])
     children();
 
+module hold(offset=-26)
+  if ($preview)
+    turn() roll() lift(offset)
+      children();
+  else
+    children();
+
 // minkowski sum with "square" of given side length
 module squirk(sq=0, convexity=2)
   if (sq>=EPSILON)

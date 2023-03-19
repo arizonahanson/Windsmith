@@ -36,3 +36,8 @@ module drill(b, h, d, w, a=0, s=0, sq=0)
       let(sagitta = radius-apothem)
       let(shoulder = d + chord(sagitta, 2*s))
       stack(h=sagitta, d1=d, d2=shoulder, fn=fn, sq=sq);
+
+module toneholes(b=19.0, h=4.3, hs=[], ds=[])
+  for (i = [0:1:len(hs)-1])
+    lift(hs[i])
+      drill(b=b, h=h, d=ds[i]);
