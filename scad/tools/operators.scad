@@ -5,28 +5,30 @@ EPSILON = 1e-3;
 // translate along z-axis
 module lift(length=0)
   translate([0, 0, length])
-  children();
+    children();
 
 // rotate clockwise around z-axis
 module turn(angle=90)
   rotate([0, 0, -angle])
-  children();
+    children();
 
 // rotate clockwise around x-axis
 module roll(angle=90)
   rotate([-angle, 0, 0])
-  children();
+    children();
 
 // scale along y-axis
 module pull(ratio=1)
   scale([1, ratio, 1])
-  children();
+    children();
 
-// minkowski sum with cube of given side length
+// minkowski sum with "square" of given side length
 module squirk(sq=0, convexity=2)
-  if (sq>=EPSILON) minkowski(convexity=convexity) {
-    translate([-sq/2, -sq/2, 0])
-      cube([sq, sq, EPSILON]);
-    children();
-  } else
-    children();
+  if (sq>=EPSILON)
+    minkowski(convexity=convexity) {
+      let(offset = -sq/2)
+      translate([offset, offset, 0])
+        cube([sq, sq, EPSILON]);
+      children();
+    } else
+      children();
