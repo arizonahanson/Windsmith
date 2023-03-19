@@ -42,4 +42,6 @@ vignettes/*.pdf
 *.stl
 *.3mf
 *.gcode
+*.zip
 config.ini
+.ninja_log
