@@ -1,8 +1,8 @@
 
 use <lib/tools.scad>;
-use <lib/components.scad>;
+use <tenon.scad>;
 
-TenonL = 26;
+TenonL = 26.0;
 BodyLength=182.924;
 BodyHolePositions=[71.682, 107.331, 137.356];
 BodyHoleDiameters=[8.979,8.705,6.444];
@@ -13,10 +13,15 @@ module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
       children();
   difference() {
     mortise()
-    stack(h=l-TenonL, d=26)
+    stack(h=l-TenonL, d=26.0)
     tenon();
-    stack(h=l+TenonL, d=19);
-    toneholes(b=19.0, h=4.3, hs=[for (x=hs) x+TenonL], ds=ds);
+
+    lift(TenonL) {
+      stack(h=l, d=19.0);
+      for (i = [0:1:len(hs)-1])
+        lift(hs[i])
+          drill(b=19.0, h=4.3, d=ds[i]);
+    }
   }
 }
 

@@ -1,6 +1,6 @@
 
 use <lib/tools.scad>;
-use <lib/components.scad>;
+use <tenon.scad>;
 
 TenonL = 26;
 FootLength=183.764;
@@ -11,8 +11,13 @@ module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
   difference() {
     mortise(h2=17.4)
     stack(h=l, d=26, top=false);
-    stack(h=l+TenonL, d=19);
-    toneholes(b=19.0, h=4.3, hs=[for (x=hs) x+TenonL], ds=ds);
+
+    lift(TenonL) {
+      stack(h=l, d=19.0);
+      for (i = [0:1:len(hs)-1])
+        lift(hs[i])
+          drill(b=19.0, h=4.3, d=ds[i]);
+    }
   }
 
 hold()

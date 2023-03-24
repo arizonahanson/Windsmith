@@ -4,13 +4,13 @@ PART =
 rule export
   command = openscad -o $out -D "PART=\"$PART\"" $in
 
-build build/head.3mf: export scad/flute.scad | scad/head.scad scad/lib/components.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/head.3mf: export scad/flute.scad | scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = head
 
-build build/body.3mf: export scad/flute.scad | scad/body.scad scad/lib/components.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/body.3mf: export scad/flute.scad | scad/body.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = body
 
-build build/foot.3mf: export scad/flute.scad | scad/foot.scad scad/lib/components.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/foot.3mf: export scad/flute.scad | scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = foot
 
 default build/head.3mf build/body.3mf build/foot.3mf
