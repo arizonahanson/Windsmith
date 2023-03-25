@@ -13,10 +13,12 @@ module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
       children();
 
   difference() {
+    paint(hue=2, a=0.9)
     mortise()
     stack(h=l-TenonL, d=26.0)
     tenon(h2=4.3);
 
+    paint(hue=8, a=1.0)
     lift(TenonL) {
       lift(-EPSILON) stack(h=l+2*EPSILON, d=19.0);
       for (i = [0:1:len(hs)-1])

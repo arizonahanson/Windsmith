@@ -32,10 +32,12 @@ module head() {
       children();
 
   difference() {
+    paint(hue=0, a=0.9)
     stack(h=HeadL, d=26.0)
     tenon(h1=TenonL, b1=26.0, b2=19.0);
 
     lift(CorkL)
+      paint(hue=6, a=1.0)
       bore();
   }
 }

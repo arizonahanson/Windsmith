@@ -54,7 +54,7 @@ module tenon(h1=26.0, h2=8.6, b1=26.0, b2=19.0)
 difference() {
   union() {
     tenon();
-    #mortise(h2=17.4);
+    mortise(h2=17.4);
   }
 
   lift(-EPSILON)
