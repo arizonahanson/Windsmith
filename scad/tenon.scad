@@ -39,14 +39,13 @@ module gland(fn)
   children();
 
 // connector printed at end of part (not foot)
-module tenon(h=26, b1=26.0, b2=19.0)
+module tenon(h1=26, h2=8.6, b1=26.0, b2=19.0)
   let(fn = fragments(b2))
-  let(first = 8.6)
-  stack(h=first, d=PistonD, fn=fn)
+  stack(h=h2, d=PistonD, fn=fn)
   gland(fn=fn)
   let(cap = (PistonD-b2)/2)
   let(step = (PistonD-GlandD)/2)
-  let(second = h-first-2*step-2*RingL-cap)
+  let(second = h1-h2-2*step-2*RingL-cap)
   stack(h=second, d=PistonD, fn=fn)
   gland(fn=fn)
   stack(h=cap, d1=PistonD, d2=b2, fn=fn, top=false);
@@ -55,7 +54,7 @@ module tenon(h=26, b1=26.0, b2=19.0)
 difference() {
   union() {
     tenon();
-    mortise(h2=17.4);
+    #mortise(h2=17.4);
   }
 
   lift(-EPSILON)

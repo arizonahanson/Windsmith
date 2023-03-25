@@ -15,7 +15,7 @@ module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
   difference() {
     mortise()
     stack(h=l-TenonL, d=26.0)
-    tenon();
+    tenon(h2=4.3);
 
     lift(TenonL) {
       stack(h=l, d=19.0);

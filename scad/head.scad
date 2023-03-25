@@ -33,7 +33,7 @@ module head() {
 
   difference() {
     stack(h=HeadL, d=26.0)
-    tenon(h=TenonL, b1=26.0, b2=19.0);
+    tenon(h1=TenonL, b1=26.0, b2=19.0);
 
     lift(CorkL)
       bore();
