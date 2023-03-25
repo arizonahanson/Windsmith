@@ -1,7 +1,7 @@
 
 
 module paint()
-  let(hue = ($parent_modules % 24) / 24)
+  let(hue = (($parent_modules + 16) % 24) / 24)
   color(hsvToRGB(hue, 0.4, 0.75, 1))
   children();
 
