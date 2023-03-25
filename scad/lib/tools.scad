@@ -1,7 +1,7 @@
 
 include <geometry.scad>;
 include <operators.scad>;
-include <paint.scad>;
+use <paint.scad>;
 
 // a if defined, else b
 function get(a, b) =
