@@ -2,15 +2,15 @@
 include <lib/tools.scad>;
 use <tenon.scad>;
 
-TenonL = 26;
+TenonL = 26.0;
 FootLength=183.801;
-FootHolePositions=[19.5644,42.4093,72.4093];
-FootHoleDiameters=[8.9047,9.9572,5.5037];
+FootHolePositions=[19.564, 42.409, 72.409];
+FootHoleDiameters=[8.905, 9.957, 5.504];
 
 module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
   difference() {
     mortise(h2=17.4)
-    stack(h=l, d=26, top=false);
+    stack(h=l, d=26.0, top=false);
 
     lift(TenonL) {
       lift(-EPSILON) stack(h=l+2*EPSILON, d=19.0);

@@ -12,7 +12,7 @@ GlandD = 22.2;
 RingL = 1.78;
 
 // connector printed at start of part (not head)
-module mortise(h1=26, h2=8.6, b1=26.0, b2=19.0) {
+module mortise(h1=26.0, h2=8.6, b1=26.0, b2=19.0) {
     difference() {
       let(fn = fragments(b1))
       let(outer1 = InnerD + 3.2)
@@ -39,7 +39,7 @@ module gland(fn)
   children();
 
 // connector printed at end of part (not foot)
-module tenon(h1=26, h2=8.6, b1=26.0, b2=19.0)
+module tenon(h1=26.0, h2=8.6, b1=26.0, b2=19.0)
   let(fn = fragments(b2))
   stack(h=h2, d=PistonD, fn=fn)
   gland(fn=fn)
@@ -58,5 +58,5 @@ difference() {
   }
 
   lift(-EPSILON)
-    stack(h=26+EPSILON, d=19);
+    stack(h=26.0+EPSILON, d=19.0);
 }

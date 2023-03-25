@@ -23,7 +23,7 @@ module pull(ratio=1)
     children();
 
 // lift, roll, turn into playing position
-module hold(offset=-26)
+module hold(offset=-26.0)
   if ($preview)
     turn() roll() lift(offset)
       children();

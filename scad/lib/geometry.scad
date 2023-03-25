@@ -15,12 +15,12 @@ function apothem(radius, chord) =
   sqrt(radius^2 - (chord/2)^2);
 
 // inradius for given radius and subtended angle
-function inradius(circumradius, angle) =
-  circumradius * cos(angle/2);
+function inradius(radius, angle) =
+  radius * cos(angle/2);
 
-// circumradius for given inradius and subtended angle
-function circumradius(inradius, angle) =
-  inradius / cos(angle/2);
+// circumradius for given apothem and subtended angle
+function circumradius(apothem, angle) =
+  apothem / cos(angle/2);
 
 // even number of fragments for a given diameter
 function fragments(diameter) =
@@ -28,12 +28,22 @@ function fragments(diameter) =
   max(4, floor(180/angle)*2);
 
 // TESTS
-let(r=1, s=LIMIT, n=fragments(2*r), a=360/n) {
-  echo(r=r, s=s);
-  echo(fragments=n);
-  echo(angle=a);
-  echo(inradius=inradius(r,a));
-  echo(chord=chord(inradius(r,a), a));
-  echo(circumradius=circumradius(apothem(r,chord(inradius(r,a),a)), a));
-  echo(sagitta=r-apothem(r,s));
-}
+let (
+  radius=5.0,
+  fn=fragments(2*radius),
+  inradius=inradius(radius, 360/fn),
+  chord=chord(inradius, 360/fn),
+  apothem=apothem(radius, chord),
+  angle=angle(radius, chord),
+  circumradius=circumradius(apothem, angle),
+  sagitta=radius-apothem
+) echo(
+  radius=radius,
+  fn=fn,
+  inradius=inradius,
+  chord=chord,
+  apothem=apothem,
+  angle=angle,
+  circumradius=circumradius,
+  sagitta=sagitta
+);

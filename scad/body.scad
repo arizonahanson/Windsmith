@@ -3,9 +3,9 @@ include <lib/tools.scad>;
 use <tenon.scad>;
 
 TenonL = 26.0;
-BodyLength=182.9145;
-BodyHolePositions=[71.7459, 107.339, 137.3502];
-BodyHoleDiameters=[8.9989,8.7106,6.4366];
+BodyLength=182.915;
+BodyHolePositions=[71.746, 107.339, 137.350];
+BodyHoleDiameters=[8.999, 8.711, 6.437];
 
 module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
   if ($children > 0)
