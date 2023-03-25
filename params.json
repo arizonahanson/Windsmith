@@ -1,7 +1,7 @@
 {
   "fileFormatVersion": "1",
   "parameterSets": {
-    "data": {
+    "flute": {
       "HeadLength": "156.0",
       "TenonLength": "26.0",
       "BodyLength": "182.9145",
@@ -11,7 +11,7 @@
       "FootHoleDiameters": "[8.9047,9.9572,5.5037]",
       "FootHolePositions": "[19.5644,42.4093,72.4093]"
     },
-    "extra.data": {
+    "metadata": {
       "CreationDate": "\"2021-01-30T18:32:33.634\"",
       "Tuning": "440.0",
       "Scale": "C♯5 B4 A4 G4 F♯4 E4 D4",

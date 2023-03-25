@@ -1,8 +1,8 @@
 
-use <lib/tools.scad>;
-use <head.scad>;
-use <body.scad>;
-use <foot.scad>;
+use <scad/lib/tools.scad>;
+use <scad/head.scad>;
+use <scad/body.scad>;
+use <scad/foot.scad>;
 
 // part to render
 PART="preview"; //[head, body, foot, preview]

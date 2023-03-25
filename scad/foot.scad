@@ -3,9 +3,9 @@ use <lib/tools.scad>;
 use <tenon.scad>;
 
 TenonL = 26;
-FootLength=183.764;
-FootHolePositions=[19.567,42.338,72.338];
-FootHoleDiameters=[8.932,9.947,5.505];
+FootLength=183.801;
+FootHolePositions=[19.5644,42.4093,72.4093];
+FootHoleDiameters=[8.9047,9.9572,5.5037];
 
 module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
   difference() {
