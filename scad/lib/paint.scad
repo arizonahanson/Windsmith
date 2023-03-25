@@ -1,7 +1,7 @@
 
 
 module paint()
-  let(hue = (($parent_modules + 16) % 24) / 24)
+  let(hue = ($parent_modules % 32) / 32)
   color(hsvToRGB(hue, 0.4, 0.75, 1))
   children();
 
@@ -26,3 +26,4 @@ function hsvToRGB(h = 1, s = 1, v = 1, a = 1) =	[
   hsvToPreRGB(h, s, v, a)[2] + hsvToMin(h, s, v, a),
   a
 ];
+

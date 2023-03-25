@@ -1,20 +1,14 @@
 
 PART =
 
-rule export
-  command = openscad -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
-
 rule thumbnail
   command = openscad --colorscheme Starnight --hardwarnings -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
-build build/head.3mf: export flute.scad | build/head.png scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
-  PART = head
+rule export
+  command = openscad -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
-build build/body.3mf: export flute.scad | build/body.png params.json scad/body.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
-  PART = body
-
-build build/foot.3mf: export flute.scad | build/foot.png params.json scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
-  PART = foot
+rule slice
+  command = prusa-slicer-console --load config/config.ini --export-gcode $in -o $out
 
 build build/head.png: thumbnail flute.scad | scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = head
@@ -28,5 +22,23 @@ build build/foot.png: thumbnail flute.scad | params.json scad/foot.scad scad/ten
 build build/flute.png: thumbnail flute.scad | params.json scad/foot.scad scad/body.scad scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = preview
 
+build build/head.3mf: export flute.scad | build/head.png
+  PART = head
 
-default build/flute.png build/head.3mf build/body.3mf build/foot.3mf
+build build/body.3mf: export flute.scad | build/body.png
+  PART = body
+
+build build/foot.3mf: export flute.scad | build/foot.png
+  PART = foot
+
+build build/head.gcode: slice build/head.3mf
+  PART = head
+
+build build/body.gcode: slice build/body.3mf
+  PART = body
+
+build build/foot.gcode: slice build/foot.3mf
+  PART = foot
+
+
+default build/flute.png build/head.gcode build/body.gcode build/foot.gcode
