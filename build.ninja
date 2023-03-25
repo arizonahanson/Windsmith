@@ -19,7 +19,7 @@ build build/body.png: thumbnail flute.scad | params.json scad/body.scad scad/ten
 build build/foot.png: thumbnail flute.scad | params.json scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = foot
 
-build build/flute.png: thumbnail flute.scad | params.json scad/foot.scad scad/body.scad scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/preview.png: thumbnail flute.scad | build/head.png build/body.png build/foot.png
   PART = preview
 
 build build/head.3mf: export flute.scad | build/head.png
@@ -31,14 +31,13 @@ build build/body.3mf: export flute.scad | build/body.png
 build build/foot.3mf: export flute.scad | build/foot.png
   PART = foot
 
-build build/head.gcode: slice build/head.3mf
+build build/head.gcode: slice build/head.3mf | config/config.ini
   PART = head
 
-build build/body.gcode: slice build/body.3mf
+build build/body.gcode: slice build/body.3mf | config/config.ini
   PART = body
 
-build build/foot.gcode: slice build/foot.3mf
+build build/foot.gcode: slice build/foot.3mf | config/config.ini
   PART = foot
 
-
-default build/flute.png build/head.gcode build/body.gcode build/foot.gcode
+default build/preview.png build/head.gcode build/body.gcode build/foot.gcode
