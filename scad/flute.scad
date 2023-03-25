@@ -7,12 +7,12 @@ use <foot.scad>;
 // part to render
 PART="preview"; //[head, body, foot, preview]
 
-BodyLength=182.924;
-BodyHolePositions=[71.682, 107.331, 137.356];
-BodyHoleDiameters=[8.979,8.705,6.444];
-FootLength=183.764;
-FootHolePositions=[19.567,42.338,72.338];
-FootHoleDiameters=[8.932,9.947,5.505];
+BodyLength=182.9145;
+BodyHolePositions=[71.7459, 107.339, 137.3502];
+BodyHoleDiameters=[8.9989,8.7106,6.4366];
+FootLength=183.801;
+FootHolePositions=[19.5644,42.4093,72.4093];
+FootHoleDiameters=[8.9047,9.9572,5.5037];
 
 // preview or place individual part
 if (PART=="head")
