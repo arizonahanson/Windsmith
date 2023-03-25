@@ -1,0 +1,21 @@
+{
+  "fileFormatVersion": "1",
+  "parameterSets": {
+    "data": {
+      "HeadLength": "156.0",
+      "TenonLength": "26.0",
+      "BodyLength": "182.9145",
+      "BodyHoleDiameters": "[8.9989,8.7106,6.4366]",
+      "BodyHolePositions": "[71.7459,107.339,137.3502]",
+      "FootLength": "183.801",
+      "FootHoleDiameters": "[8.9047,9.9572,5.5037]",
+      "FootHolePositions": "[19.5644,42.4093,72.4093]"
+    },
+    "extra.data": {
+      "CreationDate": "\"2021-01-30T18:32:33.634\"",
+      "Tuning": "440.0",
+      "Scale": "C♯5 B4 A4 G4 F♯4 E4 D4",
+      "Score": "119.3792"
+    }
+  }
+}

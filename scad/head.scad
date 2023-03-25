@@ -28,10 +28,13 @@ module bore()
 
 module head() {
   if ($children > 0)
-    lift(HeadL) children();
+    lift(HeadL)
+      children();
+
   difference() {
     stack(h=HeadL, d=26.0)
     tenon(h=TenonL, b1=26.0, b2=19.0);
+
     lift(CorkL)
       bore();
   }

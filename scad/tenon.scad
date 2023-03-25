@@ -27,7 +27,8 @@ module mortise(h1=26, h2=8.6, b1=26.0, b2=19.0) {
         stack(h=h1-step, d=InnerD, fn=fn)
         stack(h=step+2*EPSILON, d1=InnerD, d2=b2, fn=fn);
     }
-    lift(h1) children();
+    lift(h1)
+      children();
 }
 
 // groove for o-ring
@@ -54,7 +55,7 @@ module tenon(h=26, b1=26.0, b2=19.0)
 difference() {
   union() {
     tenon();
-    *mortise(h2=17.4);
+    mortise(h2=17.4);
   }
 
   lift(-EPSILON)

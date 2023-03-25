@@ -28,7 +28,7 @@ else if ($preview)
   // assembled preview
   hold()
     head()
-    lift(3) body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters)
+    body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters)
     foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters);
 else
   assert(PART!="preview", "Must supply PART (head | body | foot)");
