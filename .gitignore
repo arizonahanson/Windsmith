@@ -39,9 +39,8 @@ vignettes/*.pdf
 .Renviron
 # ---
 .vscode
-*.stl
+.ninja_log
 *.3mf
 *.gcode
+*.stl
 *.zip
-config.ini
-.ninja_log
