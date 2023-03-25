@@ -9,11 +9,9 @@ FootHoleDiameters=[8.905, 9.957, 5.504];
 
 module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
   difference() {
-    paint(hue=4, a=0.9)
     mortise(h2=17.4)
     stack(h=l, d=26.0, top=false);
 
-    paint(hue=10, a=1.0)
     lift(TenonL) {
       lift(-EPSILON) stack(h=l+2*EPSILON, d=19.0);
       for (i = [0:1:len(hs)-1])

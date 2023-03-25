@@ -27,19 +27,15 @@ module bore()
   stack(h=BoreL-123.9, d=19.0, fn=fn);   //173.4
 
 module head() {
-  if ($children > 0)
-    lift(HeadL)
-      children();
-
   difference() {
-    paint(hue=0, a=0.9)
     stack(h=HeadL, d=26.0)
     tenon(h1=TenonL, b1=26.0, b2=19.0);
 
     lift(CorkL)
-      paint(hue=6, a=1.0)
       bore();
   }
+  lift(HeadL)
+    children();
 }
 
 // TESTS

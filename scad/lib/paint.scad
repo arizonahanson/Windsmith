@@ -1,7 +1,8 @@
 
 
-module paint(hue=0, a=1.0)
-  color(hsvToRGB(hue/13, 0.15, 0.6, a))
+module paint()
+  let(hue = ($parent_modules % 24) / 24)
+  color(hsvToRGB(hue, 0.4, 0.75, 1))
   children();
 
 function hsvToChroma(h, s, v, a) = s * v;

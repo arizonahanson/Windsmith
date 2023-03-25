@@ -8,17 +8,11 @@ BodyHolePositions=[71.746, 107.339, 137.350];
 BodyHoleDiameters=[8.999, 8.711, 6.437];
 
 module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
-  if ($children > 0)
-    lift(BodyLength)
-      children();
-
   difference() {
-    paint(hue=2, a=0.9)
     mortise()
     stack(h=l-TenonL, d=26.0)
     tenon(h2=4.3);
 
-    paint(hue=8, a=1.0)
     lift(TenonL) {
       lift(-EPSILON) stack(h=l+2*EPSILON, d=19.0);
       for (i = [0:1:len(hs)-1])
@@ -26,6 +20,8 @@ module body(l=BodyLength, hs=BodyHolePositions, ds=BodyHoleDiameters) {
           drill(b=19.0, h=4.3, d=ds[i]);
     }
   }
+  lift(BodyLength)
+    children();
 }
 
 hold()
