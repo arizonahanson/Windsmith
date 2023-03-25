@@ -1,5 +1,5 @@
 
-use <lib/tools.scad>;
+include <lib/tools.scad>;
 use <tenon.scad>;
 
 TenonL = 26;
@@ -13,7 +13,7 @@ module foot(l=FootLength, hs=FootHolePositions, ds=FootHoleDiameters)
     stack(h=l, d=26, top=false);
 
     lift(TenonL) {
-      stack(h=l, d=19.0);
+      lift(-EPSILON) stack(h=l+2*EPSILON, d=19.0);
       for (i = [0:1:len(hs)-1])
         lift(hs[i])
           drill(b=19.0, h=4.3, d=ds[i]);
