@@ -4,13 +4,29 @@ PART =
 rule export
   command = openscad -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
-build build/head.3mf: export flute.scad | scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+rule thumbnail
+  command = openscad --colorscheme Starnight --hardwarnings -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
+
+build build/head.3mf: export flute.scad | build/head.png scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = head
 
-build build/body.3mf: export flute.scad | params.json scad/body.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/body.3mf: export flute.scad | build/body.png params.json scad/body.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = body
 
-build build/foot.3mf: export flute.scad | params.json scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+build build/foot.3mf: export flute.scad | build/foot.png params.json scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
   PART = foot
 
-default build/head.3mf build/body.3mf build/foot.3mf
+build build/head.png: thumbnail flute.scad | scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+  PART = head
+
+build build/body.png: thumbnail flute.scad | params.json scad/body.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+  PART = body
+
+build build/foot.png: thumbnail flute.scad | params.json scad/foot.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+  PART = foot
+
+build build/flute.png: thumbnail flute.scad | params.json scad/foot.scad scad/body.scad scad/head.scad scad/tenon.scad scad/lib/geometry.scad scad/lib/operators.scad scad/lib/tools.scad
+  PART = preview
+
+
+default build/flute.png build/head.3mf build/body.3mf build/foot.3mf
