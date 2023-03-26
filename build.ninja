@@ -40,4 +40,10 @@ build build/body.gcode: slice build/body.3mf | config/config.ini
 build build/foot.gcode: slice build/foot.3mf | config/config.ini
   PART = foot
 
-default build/preview.png build/head.gcode build/body.gcode build/foot.gcode
+build preview: phony build/preview.png
+
+build 3mf: phony build/head.3mf build/body.3mf build/foot.3mf
+
+build gcode: phony build/head.gcode build/body.gcode build/foot.gcode
+
+default preview 3mf

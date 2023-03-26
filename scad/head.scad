@@ -12,7 +12,6 @@ HeadL=OffsetL+TuneL-TenonL; //156.0 (TuneL)
 
 module bore()
   let(fn = fragments(19.0))
-  // based on '69 Selmer
   stack(h=HoleL, d1=17.0, d2=17.4, fn=fn) //17.4
   // squoval embouchure with angled wall and shoulder
   drill(b=17.4, h=4.3, d=10.2, w=12.2, a=7, s=45, sq=1.0)
