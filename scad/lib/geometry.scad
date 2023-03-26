@@ -1,6 +1,6 @@
 
 // smallest fragment (mm)
-LIMIT = $preview ? 0.4 : 0.15;
+LIMIT = $preview ? 0.45 : 0.15;
 
 // subtended angle for given radius and chord length
 function angle(radius, chord) =
