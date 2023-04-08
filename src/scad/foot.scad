@@ -1,5 +1,5 @@
 
-include <lib/globals.scad>;
+include <lib/consts.scad>;
 use <lib/operators.scad>;
 use <lib/tools.scad>;
 use <tenon.scad>;

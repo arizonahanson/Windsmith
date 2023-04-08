@@ -1,5 +1,5 @@
 
-include <globals.scad>;
+include <consts.scad>;
 
 // subtended angle for given radius and chord length
 function angle(radius, chord) =

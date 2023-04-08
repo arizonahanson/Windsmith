@@ -1,5 +1,5 @@
 
-include <globals.scad>;
+include <consts.scad>;
 
 // translate along z-axis
 module lift(length=0)

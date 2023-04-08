@@ -1,5 +1,5 @@
 
-include <globals.scad>;
+include <consts.scad>;
 use <geometry.scad>;
 use <operators.scad>;
 use <paint.scad>;
