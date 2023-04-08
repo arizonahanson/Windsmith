@@ -1,7 +1,7 @@
 
-use <lib/geometry.scad>;
-use <lib/operators.scad>;
-use <lib/tools.scad>;
+use <tools/geometry.scad>;
+use <tools/operators.scad>;
+use <tools/shape.scad>;
 use <tenon.scad>;
 
 CorkL=8.6;

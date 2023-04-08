@@ -1,8 +1,8 @@
 
-include <lib/consts.scad>;
-use <lib/geometry.scad>;
-use <lib/operators.scad>;
-use <lib/tools.scad>;
+include <tools/consts.scad>;
+use <tools/geometry.scad>;
+use <tools/operators.scad>;
+use <tools/shape.scad>;
 
 // mortise inner bore - 0.925-0.927"
 InnerD = 25.2;

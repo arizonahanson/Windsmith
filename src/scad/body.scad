@@ -1,7 +1,7 @@
 
-include <lib/consts.scad>;
-use <lib/operators.scad>;
-use <lib/tools.scad>;
+include <tools/consts.scad>;
+use <tools/operators.scad>;
+use <tools/shape.scad>;
 use <tenon.scad>;
 
 TenonL = 26.0;
