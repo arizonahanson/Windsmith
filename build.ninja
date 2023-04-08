@@ -5,7 +5,7 @@ rule thumbnail
   command = openscad -q --colorscheme Starnight --hardwarnings -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
 rule export
-  command = openscad -q -p params.json -P flute -D "PART=\"$PART\"" $in -o $out
+  command = openscad -q -p config/params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
 rule slice
   command = prusa-slicer-console --load config/config.ini --export-gcode $in -o $out
