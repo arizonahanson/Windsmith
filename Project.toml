@@ -2,3 +2,6 @@ name = "Windsmith"
 uuid = "dcac8e5a-84ee-450a-9c2d-a69c22a9f2ee"
 authors = ["Arizona Hanson <arizona@starlig.ht>"]
 version = "0.2.0"
+
+[compat]
+julia = "1.8.5"
