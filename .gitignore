@@ -38,8 +38,9 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 # ---
-.vscode
 .ninja_log
+.vscode/*
+!.vscode/tasks.json
 *.3mf
 *.gcode
 *.png
