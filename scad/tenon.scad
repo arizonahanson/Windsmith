@@ -1,5 +1,7 @@
 
-include <lib/operators.scad>;
+include <lib/globals.scad>;
+use <lib/geometry.scad>;
+use <lib/operators.scad>;
 use <lib/tools.scad>;
 
 // mortise inner bore - 0.925-0.927"

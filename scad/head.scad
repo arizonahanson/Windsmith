@@ -1,4 +1,6 @@
 
+use <lib/geometry.scad>;
+use <lib/operators.scad>;
 use <lib/tools.scad>;
 use <tenon.scad>;
 

@@ -1,5 +1,7 @@
 
-include <lib/tools.scad>;
+include <lib/globals.scad>;
+use <lib/operators.scad>;
+use <lib/tools.scad>;
 use <tenon.scad>;
 
 TenonL = 26.0;

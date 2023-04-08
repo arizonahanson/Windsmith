@@ -1,6 +1,7 @@
 
-include <geometry.scad>;
-include <operators.scad>;
+include <globals.scad>;
+use <geometry.scad>;
+use <operators.scad>;
 use <paint.scad>;
 
 // a if defined, else b

@@ -1,6 +1,5 @@
 
-// smallest fragment (mm)
-LIMIT = $preview ? 0.45 : 0.15;
+include <globals.scad>;
 
 // subtended angle for given radius and chord length
 function angle(radius, chord) =
@@ -24,12 +23,12 @@ function circumradius(apothem, angle) =
 
 // even number of fragments for a given diameter
 function fragments(diameter) =
-  let(angle = angle(diameter/2, LIMIT))
+  let(angle = angle(diameter/2, CHORD_MIN))
   max(4, floor(180/angle)*2);
 
 // TESTS
 let (
-  radius=5.0,
+  radius=2.75,
   fn=fragments(2*radius),
   inradius=inradius(radius, 360/fn),
   chord=chord(inradius, 360/fn),
