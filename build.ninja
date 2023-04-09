@@ -9,15 +9,15 @@ rule export
   command = openscad -q -p config/params.json -P flute -D "PART=\"$PART\"" $in -o $out
 
 rule slice
-  command = prusa-slicer-console --load config/prusa_config.ini --export-gcode $in -o $out
+  command = prusa-slicer-console --load config/prusa_config.ini --dont-arrange --export-gcode $in -o $out
 
-build build/head.png: thumbnail src/Flute.scad | $SCAD/head.scad $SCAD/tenon.scad $SCAD/lib/geometry.scad $SCAD/lib/operators.scad $SCAD/lib/tools.scad
+build build/head.png: thumbnail src/Flute.scad | $SCAD/head.scad $SCAD/tenon.scad $SCAD/tools/geometry.scad $SCAD/tools/operators.scad $SCAD/tools/shape.scad
   PART = head
 
-build build/body.png: thumbnail src/Flute.scad | config/params.json $SCAD/body.scad $SCAD/tenon.scad $SCAD/lib/geometry.scad $SCAD/lib/operators.scad $SCAD/lib/tools.scad
+build build/body.png: thumbnail src/Flute.scad | config/params.json $SCAD/body.scad $SCAD/tenon.scad $SCAD/tools/geometry.scad $SCAD/tools/operators.scad $SCAD/tools/shape.scad
   PART = body
 
-build build/foot.png: thumbnail src/Flute.scad | config/params.json $SCAD/foot.scad $SCAD/tenon.scad $SCAD/lib/geometry.scad $SCAD/lib/operators.scad $SCAD/lib/tools.scad
+build build/foot.png: thumbnail src/Flute.scad | config/params.json $SCAD/foot.scad $SCAD/tenon.scad $SCAD/tools/geometry.scad $SCAD/tools/operators.scad $SCAD/tools/shape.scad
   PART = foot
 
 build build/preview.png: thumbnail src/Flute.scad | build/head.png build/body.png build/foot.png
@@ -38,7 +38,7 @@ build build/head.gcode: slice build/head.3mf | config/prusa_config.ini
 build build/body.gcode: slice build/body.3mf | config/prusa_config.ini
   PART = body
 
-build build/foot.gcode: slice build/foot.3mf | config/config.ini
+build build/foot.gcode: slice build/foot.3mf | config/prusa_config.ini
   PART = foot
 
 build preview: phony build/preview.png
